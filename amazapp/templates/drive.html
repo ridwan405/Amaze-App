@@ -1,0 +1,124 @@
+{% csrf_token %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Amazing App</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+   
+   <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'> -->
+
+
+
+</head>  
+
+
+
+
+
+
+
+<body>
+
+   <div class="container">
+      <div>
+         <h1>Home Page</h1>
+         <form action='logout' method=''>
+            <button class= "btn btn-primary">logout</button>
+         </form>
+      </div>
+      <form action='drive/upload_file_of_choice' method=''>
+         <button class= "btn btn-primary">Upload File to drive</button>
+      </form>
+      {% comment %} <a class= "btn btn-success" href="/drive/upload_file_of_choice">Upload File to drive</a> {% endcomment %}
+      <button class="backbutton"><a href="/homepage">Back</a></button>
+
+      <div class="container text-center">
+         <h2>Files are shown here</h2><br>
+
+         
+         {% for item in items %}
+
+         <a class= "btn btn-success" href="/drive/{{item.id}}">{{item.name}}</a> <br><br><br>
+
+         {% endfor %}
+         
+
+
+         
+
+         <!-- <table class="table table-sm table-striped table-hover table-bordered border-primary"> -->
+         <!-- <table class="table table-responsive w-100 d-block d-md-table align-bottom"> -->
+         {% comment %} <table class="table table-responsive w-100 d-block d-md-table">
+            <thead>
+               <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Action</th>
+                  <th scope="col">Name</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for item in items %}
+               <tr>
+                  <th scope="row">{{item.id}}</th>
+                  <td>
+                     <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                           Dropdown button (not yet implemented)
+                        </button>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item" href="#">Action</a></li>
+                           <li><a class="dropdown-item" href="#">Another action</a></li>
+                           <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                     </div>
+                  </td>
+                  <td>{{item.name}}</td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table> {% endcomment %}
+      </div>
+
+      {% comment %} <form action='create' method=''>
+         <button>create</button><br>
+      </form>
+
+      <h3>Download</h3>
+      <form action='download' method='POST'>
+         {% csrf_token %}
+         <input type='text' name='file_id' /><br>
+
+         <input type='submit' /><br>
+      </form>
+
+      <form action='upload' method='POST'>
+         <h3>Upload</h3>
+         {% csrf_token %}
+         <input type='text' name='file_id' /><br>
+         <input type='submit' />
+      </form>
+
+      <h3>Encrypt File with id</h3>
+      <form action='encrypt' method='POST'>
+         {% csrf_token %}
+         <input type='text' name='file_id' /><br>
+         <input type='submit' />
+      </form>
+
+      <h3>Decrypt File with id</h3>
+      <form action='decrypt' method='POST'>
+         {% csrf_token %}
+         <input type='text' name='file_id' /><br>
+         <input type='submit' />
+      </form>
+   </div> {% endcomment %}
+
+</body>
+
+
+</html>

@@ -1,0 +1,68 @@
+
+
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Amazing App</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    
+    <div class="Log">
+         
+            <div class="buttonone">
+                
+                {% if user.is_authenticated %}
+
+                <div class="text">
+                <p>Welcome, You are logged in as {{ user.username }}</p> 
+
+                 </div>
+
+                 {% comment %}  view will send this variable, index and camera auth views     {% endcomment %}
+                
+                {% if authenticated == False %}
+
+                {% comment %} form for camera auth {% endcomment %}
+                 
+                <form action='authenticate' method=''>
+                    <button class="btn btn2">Authenticate</button>
+                </form>
+
+                {% else %}
+                {% comment %} when authenticated==true  {% endcomment %}
+                <form action='homepage' method=''>
+                    <button class="btn btn2">drive</button>
+                </form>
+
+                {% endif %}
+
+                {% comment %} when not logged in {% endcomment %}
+                {% else %}
+                <div class="text">
+                    <h1>LogIn With</h1>
+                </div>
+
+                <button class="btn btn1"><a href="{% url "social:begin" "google-oauth2" %}">Google Sign in</a></button><br>
+
+                {%endif%}
+                
+            </div>
+        
+    </div>
+
+
+    <!-- <div class="buttontwo">
+        <button class="btn btn2">Google Drive</button>
+    </div> -->
+</body>
+
+
+</html>

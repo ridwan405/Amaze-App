@@ -1,0 +1,33 @@
+Open the project in visual studio Code from this directory
+
+in the command line use the following command to change directory to django backend
+
+
+using python pipenv for virtual environment
+
+>>
+pip install pipenv
+
+
+>>
+cd amazapp/
+
+create vitual environment
+>>
+pipenv install
+
+
+active virtual environment
+>>
+pipenv shell
+
+notice the change on editor when the virtual environment becomes active
+
+start the server
+>>
+python manage.py runserver
+
+
+everytime time pipfile changes 
+>>
+pipenv install

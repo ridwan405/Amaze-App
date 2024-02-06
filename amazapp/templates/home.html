@@ -1,0 +1,131 @@
+ {% load static  %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <link rel="stylesheet" href="{% static 'style3.css' %}">
+    <title>Upload Button</title>
+
+    {% comment %} <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        .logout{
+     align-items: center; 
+     justify-content: center;  
+    left: 710px;
+    bottom: 300px; 
+    text-align: center;
+    color: aqua;
+    
+  }
+  .btn2{
+    color: #3498db;
+  }
+
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 260px;
+        }
+
+        .main .file{
+            display: none;
+        }
+
+        .main img{
+            width: 400px;
+            cursor: pointer;
+        }
+
+    .button{
+     align-items: center; 
+     justify-content: center;  
+    left: 710px;
+    bottom: 300px; 
+    text-align: center;
+    
+  }
+  .btn{
+    border: 1px solid #3498db;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn1{
+    color: #3498db;
+  }
+  .btn1:hover{
+    color: #fff;
+  }
+  .btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.8s;
+  }
+  .btn1::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
+  }
+  .btn1:hover::before{
+    height: 180%;
+  }
+    </style> {% endcomment %}
+</head>
+<body>
+
+    <div class="logout">
+      <form action='logout' method=''>
+        <button class="btn btn2">LogOut</button>
+      </form>
+    </div>
+
+    <div class="main">
+        {% comment %} <input type="file" class="file" id="file"> {% endcomment %}
+        <form action='drive/upload_file_of_choice' method=''>
+          <button class= "btn btn-primary"><img src="{% static 'upload.png' %}" id="up-img"></button>
+       </form>
+        {% comment %} <a class= "btn btn-success" href="/drive/upload_file_of_choice"><img src="{% static 'upload.png' %}" id="up-img"></a>   {% endcomment %}
+    </div>
+
+    <div class="button">
+      
+
+                {% comment %} form for camera auth {% endcomment %}
+                 
+        <form action='authpdf' method='GET'>
+        <button class="btn btn1">
+            View file
+
+        </button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    {% comment %} <script>
+        $("#up-img").click(function(){
+            $("#file").click();
+        });
+    </script> {% endcomment %}
+</body>
+</html>

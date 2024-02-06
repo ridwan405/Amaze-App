@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+    background: #000a04;
+    font-family: 'Rubik', sans-serif;
+  } 
+  .text{
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+
+
+  
+
+  .buttonone{
+    /* position: absolute;
+    left: 710px;
+    bottom: 300px; */
+    text-align: center;
+    margin-top: 360px;
+    
+  }
+  .btn{
+    border: 1px solid #3498db;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn1{
+    color: #3498db;
+  }
+  .btn2{
+    margin-top: 20px;
+    color: #fff;
+  }
+  .btn1:hover{
+    color: #fff;
+  }
+  .btn2:hover{
+    color: #3498db;
+  }
+  .btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.8s;
+  }
+  .btn1::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
+  }
+  .btn2::before{
+    bottom: 0;
+    height: 180%;
+    border-radius: 50% 50% 0 0;
+  }
+  .btn1:hover::before{
+    height: 180%;
+  }
+  .btn2:hover::before{
+    height: 0%;
+  }
+
+  

@@ -1,0 +1,131 @@
+{% comment %} {% comment %} 
+{% load static %}
+
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Name of your awesome camera app -->
+    <title>Camera App</title>
+    <!-- Link to your main style sheet-->
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+</head>
+<body>
+    <!-- Camera -->
+    <form action= 'authenticate' method= 'POST'>
+
+        {% csrf_token %}
+
+        <input type= 'submit'/>
+
+    {% comment %} <main id="camera">
+        <!-- Camera sensor -->
+        <canvas id="camera--sensor"></canvas>
+        <!-- Camera view -->
+        <video id="camera--view" autoplay playsinline></video>
+        <!-- Camera output -->
+        <img src="\\:0" alt="" id="camera--output">
+        <!-- Camera trigger -->
+        <button id="camera--trigger">Take a picture</button>
+    </main> 
+</form>
+    <!-- Reference to your JavaScript file -->
+    {% comment %} <script src="static/app.js"></script> 
+</body>
+</html> {% endcomment %} 
+
+{% load static %}
+
+<!doctype html>
+<html>
+    
+    {% load static %}
+    <head>
+        <title>VisionApp</title>
+        <meta charset='utf-8'>
+        <link rel="stylesheet" href="{% static 'style2.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="module" src="{% static 'app.js' %}"></script>
+        <style>
+            body{ 
+                background-color: beige;
+            }
+
+            #camera{
+                text-align: center;
+            }
+
+            #video{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                height: 280px;
+                width: 400px;
+                transform: scaleX(-1);
+                border-radius: 10px;
+
+            }
+
+            #startbutton{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+                width: 150px;
+                cursor: pointer;
+                margin-bottom: 10px;
+            }
+
+            #canvas{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                height: 280px;
+                width: 400px;
+                border-radius: 10px;
+                transform: scaleX(-1);
+            }
+
+            #submit{
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+                width: 150px;
+                cursor: pointer;
+                margin-bottom: 10px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="contentarea">
+            <div class="Input">
+                <form method="POST"  action= 'authenticate' >
+                    {% csrf_token %}
+                    <div id="camera" class="camera">
+                        <video id="video">Video stream not available.</video>
+                        <button id="startbutton" type="button">Take photo</button>
+                        <input id="webimg" value="" name="src" type="text" style="display: none;">
+                        
+                        <canvas id="canvas">
+                            
+                        </canvas>
+                        <button type="submit" class="button" id="submit">Submit</button>
+                        
+                    </div>
+                    <br>
+                    
+                        {% comment %} <img id="photo" alt="your image"><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> {% endcomment %}
+                        
+                    
+                    <br>
+                    
+                </form>
+            </div>
+           {% comment %} <img src="{{ path }}" alt="The screen capture will appear in this box."> {% endcomment %}
+        </div>
+    </body>
+    
+</html>
